@@ -9,7 +9,7 @@
 </h3>
 
 <h4 align="center">
-	Em andamento 🚀
+	Finalizado 🚀
 </h4>
 
 Tabela de conteúdos
