@@ -2,8 +2,10 @@ package com.wyan.digital_account.controller;
 
 import com.wyan.digital_account.mapper.AccountMapper;
 import com.wyan.digital_account.service.AccountService;
+import com.wyan.digital_account.service.TransactionService;
 import com.wyan.digital_account.vo.request.AccountRequestVo;
 import com.wyan.digital_account.vo.response.AccountResponseVo;
+import com.wyan.digital_account.vo.response.TransactionResponseVo;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ import java.util.List;
 public class AccountController {
     private final AccountService accountService;
     private final AccountMapper accountMapper;
+    private final TransactionService transactionService;
 
     @GetMapping
     public List<AccountResponseVo> getAllAccounts() {
@@ -40,5 +43,10 @@ public class AccountController {
     @DeleteMapping("{id}")
     public void deleteAccount(@PathVariable long id) {
         accountService.deleteAccount(id);
+    }
+
+    @GetMapping("/{id}/transactions")
+    public List<TransactionResponseVo> getClientAccount(@PathVariable long id) {
+        return transactionService.getAccountTransactions(id);
     }
 }

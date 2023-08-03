@@ -1,12 +1,10 @@
 package com.wyan.digital_account.service;
 
-import com.wyan.digital_account.entity.Account;
 import com.wyan.digital_account.entity.Transaction;
 import com.wyan.digital_account.enumeration.TransactionType;
 import com.wyan.digital_account.mapper.TransactionMapper;
 import com.wyan.digital_account.repository.AccountRepository;
 import com.wyan.digital_account.repository.TransactionRepository;
-import com.wyan.digital_account.vo.request.AccountRequestVo;
 import com.wyan.digital_account.vo.request.TransactionRequestVo;
 import com.wyan.digital_account.vo.response.TransactionResponseVo;
 import jakarta.persistence.EntityNotFoundException;
@@ -16,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -45,6 +42,12 @@ public class TransactionService {
     public List<TransactionResponseVo> getAllTransactions() {
         List<TransactionResponseVo> transactionResponseVoList = new ArrayList<>();
         transactionRepository.findAll().forEach(transaction -> transactionResponseVoList.add(transactionMapper.fromEntity(transaction)));
+        return transactionResponseVoList;
+    }
+
+    public List<TransactionResponseVo> getAccountTransactions(long id){
+        List<TransactionResponseVo> transactionResponseVoList = new ArrayList<>();
+        transactionRepository.findTransactionsByAccount_Id(id).forEach(transaction -> transactionResponseVoList.add(transactionMapper.fromEntity(transaction)));
         return transactionResponseVoList;
     }
 

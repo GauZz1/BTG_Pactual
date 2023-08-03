@@ -1,14 +1,11 @@
 package com.wyan.digital_account.controller;
 
-import com.wyan.digital_account.entity.Transaction;
 import com.wyan.digital_account.mapper.TransactionMapper;
 import com.wyan.digital_account.service.TransactionService;
 import com.wyan.digital_account.vo.request.TransactionRequestVo;
 import com.wyan.digital_account.vo.response.TransactionResponseVo;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
