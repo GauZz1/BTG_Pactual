@@ -9,7 +9,7 @@
 </h3>
 
 <h4 align="center">
-	Finalizado 🚀
+	Em andamento 🚀
 </h4>
 
 Tabela de conteúdos
@@ -17,8 +17,10 @@ Tabela de conteúdos
 <!--ts-->
 * [Sobre o projeto](#-sobre-o-projeto)
 * [Funcionalidades](#-funcionalidades)
+* [Modelagem da Entidades e Relacionamentos](#-modelagem-de-entidades-e-relacionamentos)
+	* [Modelo Entidade Relacionamento](#-modelo-entidade-relacionamento)
+	* [Diagrama Entidade Relacionamento](#-diagrama-entidade-relacionamento)
 * [Tecnologias](#-tecnologias)
-    * [WebSite](#user-content-website--react----typescript)
 * [Contribuidores](#-contribuidores)
 <!--te-->
 
@@ -28,9 +30,21 @@ Tabela de conteúdos
 💱 O projeto é um desafio técnico para a empresa BTG Pactual que consiste na criação de um sistema de contas digitais contendo entidades básicas como cliente, conta e movimentações e os métodos de cada entidade. 
 No projeto foi utilizado framework Spring Boot e o banco de dados utilizado foi o PostgreSQL
 
+## Modelagem da Entidades e Relacionamentos
+
+## Modelo Entidade Relacionamento
+- O Modelo Entidade Relacionamento (MER) é usado para representar as entidades, seus atributos e relacionamentos 
+
+![Alt text](src/main/assets/DER_Digital_Account.jpg)
+
+## Diagrama Entidade Relacionamento
+- O Diagrama Entidade Relacionamento (DER) é a representação gráfica das entidades e seus relacionamentos
+
+![Alt text](src/main/assets/MER_Digital_Account.jpg)
+
 ---
 
-## ⚙️ Funcionalidades
+## ⚙️ Funcionalidades #funcionalidades
 
 - Cadastro e atualização de clientes
 - Cadastro e atualização de contas
