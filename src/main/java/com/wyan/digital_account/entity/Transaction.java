@@ -32,7 +32,7 @@ public class Transaction {
     @Column(nullable = false)
     private double amount;
 
-    @Column(name = "transaction_date", nullable = false)
+    @Column(name = "transaction_date")
     @CreatedDate
     private Instant transactionDate = Instant.now();
 

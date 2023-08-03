@@ -2,6 +2,7 @@ package com.wyan.digital_account.service;
 
 import com.wyan.digital_account.entity.Transaction;
 import com.wyan.digital_account.enumeration.TransactionType;
+import com.wyan.digital_account.exception.InsufficientBalanceException;
 import com.wyan.digital_account.mapper.TransactionMapper;
 import com.wyan.digital_account.repository.AccountRepository;
 import com.wyan.digital_account.repository.TransactionRepository;
@@ -26,11 +27,12 @@ public class TransactionService {
     public void createTransaction(TransactionRequestVo transactionRequestVo) {
         var account = accountRepository.findById(transactionRequestVo.accountId()).orElseThrow(() -> new EntityNotFoundException("Account not found"));
         Transaction transaction = transactionMapper.toEntity(transactionRequestVo, account);
-        transactionRepository.save(transaction);
-
-        double newBalance = TransactionType.DEPOSIT.equals(transactionRequestVo.type()) ?
+        boolean isDeposit = TransactionType.DEPOSIT.equals(transactionRequestVo.type());
+        double newBalance = isDeposit ?
                 account.getBalance() + transaction.getAmount() :
                 account.getBalance() - transaction.getAmount();
+        if(!isDeposit && newBalance < 0) throw new InsufficientBalanceException("Insufficient Balance");
+        transactionRepository.save(transaction);
         account.setBalance(newBalance);
         accountRepository.save(account);
     }
