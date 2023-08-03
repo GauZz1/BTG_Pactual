@@ -20,6 +20,7 @@ public class ClientMapper {
 
     public ClientResponseVo fromEntity(Client client) {
         return new ClientResponseVo(
+                client.getId(),
                 client.getName(),
                 client.getCpf(),
                 client.getEmail(),

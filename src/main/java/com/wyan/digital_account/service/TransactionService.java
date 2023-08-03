@@ -38,7 +38,7 @@ public class TransactionService {
     }
 
     public Transaction getTransaction(long id) {
-        return transactionRepository.findById(id).orElseThrow();
+        return transactionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Transaction not found"));
     }
 
     public List<TransactionResponseVo> getAllTransactions() {

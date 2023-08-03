@@ -23,6 +23,7 @@ public class TransactionMapper {
 
     public TransactionResponseVo fromEntity(Transaction transaction) {
         return new TransactionResponseVo(
+                transaction.getId(),
                 transaction.getAmount(),
                 transaction.getType(),
                 transaction.getDescription(),

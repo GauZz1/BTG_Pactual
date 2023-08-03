@@ -18,7 +18,7 @@ public class AccountMapper {
     }
 
     public AccountResponseVo fromEntity(Account account) {
-        return new AccountResponseVo(account.getBalance(), account.getNumber());
+        return new AccountResponseVo(account.getId(), account.getBalance(), account.getNumber());
     }
 
 }

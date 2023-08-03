@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.Instant;
 
 public record TransactionResponseVo(
+        long id,
         double amount,
         @NotNull
         TransactionType type,
