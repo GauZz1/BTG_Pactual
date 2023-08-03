@@ -56,6 +56,254 @@ No projeto foi utilizado framework Spring Boot e o banco de dados utilizado foi 
 
 ---
 
+# REST API
+
+The REST API to the example app is described below.
+
+## Client
+
+### POST
+
+`POST /clients` - Create Client
+
+    http://localhost:8080/clients
+    JSON body
+    {
+    	"name": "Teste2",
+    	"cpf": "3342423",
+    	"cellphone": "576567567",
+    	"address": "Rua teste 12356",
+    	"email": "teste2@gmail.com"
+	}
+
+cURL
+
+    curl --location 'http://localhost:8080/clients' \
+	--header 'Content-Type: application/json' \
+	--data-raw '{
+    	"name": "Teste2",
+    	"cpf": "3342423",
+    	"cellphone": "576567567",
+    	"address": "Rua teste 12356",
+    	"email": "teste2@gmail.com"
+	}'
+
+ ### PUT
+
+`PUT /clients/{id}` - Update Client
+
+    http://localhost:8080/clients/{id}
+    JSON body
+    {
+    	"name": "Teste2",
+    	"cpf": "3342423",
+    	"cellphone": "576567567",
+    	"address": "Rua teste 12356",
+    	"email": "teste2@gmail.com"
+	}
+
+cURL
+
+    curl --location --request PUT 'http://localhost:8080/clients' \
+	--header 'Content-Type: application/json' \
+	--data-raw '{
+	    "name": "Teste2",
+	    "cpf": "3342423",
+	    "cellphone": "576567567",
+	    "address": "Rua teste 12356",
+	    "email": "teste2@gmail.com"
+	}'
+
+ ### GET
+
+`GET /clients` - Get All Clients
+
+    http://localhost:8080/clients
+
+cURL
+
+    curl --location 'http://localhost:8080/clients' \
+	--data ''
+
+  ### GET
+
+`GET /clients/{id}` - Get Client
+
+    http://localhost:8080/clients/{id}
+
+cURL
+
+    curl --location 'http://localhost:8080/clients/2' \
+	--data ''
+
+   ### GET
+
+`GET /clients/{id}/account` - Get Client Account
+
+    http://localhost:8080/clients/{id}/account
+
+cURL
+
+    curl --location 'http://localhost:8080/clients/1/account' \
+	--data ''
+
+  ### DELETE
+
+`DELETE /clients/{id}` - Delete Client
+
+    http://localhost:8080/clients/{id}
+
+cURL
+
+    curl --location 'http://localhost:8080/clients' \
+	--data ''
+
+ ## Account
+
+### POST
+
+`POST /accounts` - Create Account
+
+    http://localhost:8080/accounts
+    JSON body
+    {
+    "number": "123",
+    "balance": 100.00,
+    "clientId": 3
+	}
+
+cURL
+
+    curl --location 'http://localhost:8080/accounts' \
+	--header 'Content-Type: application/json' \
+	--data '{
+	    "number": "123",
+	    "balance": 100.00,
+	    "clientId": 3
+	}'
+
+ ### PUT
+
+`PUT /accounts/{id}` - Update Account
+
+    http://localhost:8080/accounts/{id}
+    JSON body
+    {
+    "number": "12354",
+    "balance": 100.00,
+    "clientId": 3
+	}
+
+cURL
+
+    curl --location --request PUT 'http://localhost:8080/accounts/3' \
+	--header 'Content-Type: application/json' \
+	--data '{
+	    "number": "12354",
+	    "balance": 100.00,
+	    "clientId": 3
+	}'
+
+ ### GET
+
+`GET /accounts` - Get All Accounts
+
+    http://localhost:8080/accounts
+
+cURL
+
+    curl --location 'http://localhost:8080/accounts' \
+--data ''
+
+  ### GET
+
+`GET /accounts/{id}` - Get Account
+
+    http://localhost:8080/accounts/{id}
+
+cURL
+
+    curl --location 'http://localhost:8080/accounts/3' \
+	--data ''
+
+   ### GET
+
+`GET /accounts/{id}/transactions` - Get Account Transactions
+
+    http://localhost:8080/accounts/{id}/transactions
+
+cURL
+
+    curl --location 'http://localhost:8080/accounts/1/transactions' \
+	--data ''
+
+  ### DELETE
+
+`DELETE /accounts/{id}` - Delete Account
+
+    http://localhost:8080/accounts/{id}
+
+cURL
+
+    curl --location 'http://localhost:8080/accounts' \
+	--data ''
+
+
+## Transaction
+
+### POST
+
+`POST /transactions` - Create Transaction
+
+    http://localhost:8080/transactions
+    JSON body
+    {
+    "accountId": 1,
+    "type": "WITHDRAW",
+    "amount": 15.00,
+    "description": "Removi saldo da conta"
+	}
+
+cURL
+
+    curl --location 'http://localhost:8080/transactions' \
+	--header 'Content-Type: application/json' \
+	--data '{
+	    
+	    "accountId": 1,
+	    "type": "WITHDRAW",
+	    "amount": 15.00,
+	    "description": "Removi saldo da conta"
+	}'
+
+ ### GET
+
+`GET /transactions` - Get All Transactions
+
+    http://localhost:8080/transactions
+
+cURL
+
+    curl --location 'http://localhost:8080/transactions' \
+--data ''
+
+  ### GET
+
+`GET /transactions/{id}` - Get Transaction
+
+    http://localhost:8080/transactions/{id}
+
+cURL
+
+    curl --location 'http://localhost:8080/transactions/8' \
+	--data ''
+ 
+---
+
+ - As opções de DELETE e UPDATE da entidade transactions não foram implementadas pois na regra de negócio de contas digitais eu acredito não fazer sentido poder deleter ou atualizar uma transação
+ 
+---
+
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
