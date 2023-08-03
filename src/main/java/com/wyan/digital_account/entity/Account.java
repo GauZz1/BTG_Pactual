@@ -21,10 +21,10 @@ public class Account {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column
+    @Column(nullable = false)
     private String number;
 
-    @Column
+    @Column(nullable = false)
     private double balance;
 
 }

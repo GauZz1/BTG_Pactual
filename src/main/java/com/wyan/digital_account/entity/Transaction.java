@@ -25,17 +25,17 @@ public class Transaction {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TransactionType type;
 
-    @Column
+    @Column(nullable = false)
     private double amount;
 
-    @Column(name = "transaction_date")
+    @Column(name = "transaction_date", nullable = false)
     @CreatedDate
     private Instant transactionDate = Instant.now();
 
-    @Column
+    @Column(nullable = false)
     private String description;
 }
