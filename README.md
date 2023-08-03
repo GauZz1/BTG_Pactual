@@ -16,12 +16,13 @@ Tabela de conteúdos
 =================
 <!--ts-->
 * [Sobre o projeto](#-sobre-o-projeto)
-* [Funcionalidades](#-funcionalidades)
 * [Modelagem da Entidades e Relacionamentos](#-modelagem-de-entidades-e-relacionamentos)
 	* [Modelo Entidade Relacionamento](#-modelo-entidade-relacionamento)
 	* [Diagrama Entidade Relacionamento](#-diagrama-entidade-relacionamento)
- 	* Script DDL
-  	* Script DML
+ 	* [Script DDL](#-script-ddl)
+  	* [Script DML](#-script-dml)
+* [Funcionalidades](#-funcionalidades)
+* [Documentação](#-documentacao)
 * [Tecnologias](#-tecnologias)
 * [Contribuidores](#-contribuidores)
 <!--te-->
@@ -120,9 +121,9 @@ No projeto foi utilizado framework Spring Boot e o banco de dados utilizado foi 
 
 ---
 
-# REST API
+# Documentação
 
-The REST API to the example app is described below.
+Documentação da API com as operações de CRUD para as entidades Cliente, Conta e Transação seguindo o padrão REST
 
 ## Client
 
